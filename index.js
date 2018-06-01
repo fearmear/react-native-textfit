@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react'
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  NativeModules 
+import {
+  StyleSheet,
+  Text,
+  View,
+  NativeModules
 } from 'react-native'
 
 const UIManager = NativeModules.UIManager;
@@ -18,7 +18,7 @@ class TextFit extends Component {
   }
 
   setSize() {
-    const maxHeight = this.props.height 
+    const maxHeight = this.props.height
     this.refs.field.measure((x, y, width, height, px, py) =>{
       if (maxHeight < height) {
         if (this.state.size == 0.5) {
@@ -29,7 +29,10 @@ class TextFit extends Component {
         }
       } else {
         if (!this.state.complete) {
-          this.setState({size: this.state.size += 0.5})
+          this.setState({
+            size: this.state.size += 0.5,
+            complete: this.state.size >= this.props.maxSize
+          })
           this.setSize()
         }
       }
@@ -41,13 +44,13 @@ class TextFit extends Component {
 
   render() {
     return (
-      <Text 
+      <Text
         {...this.props}
         ref="field"
         style={[
-          this.props.style, 
-          { 
-            fontSize: this.state.size, 
+          this.props.style,
+          {
+            fontSize: this.state.size,
             color: this.state.complete ? 'black': 'transparent',
             width: this.props.width,
           }
@@ -59,11 +62,13 @@ class TextFit extends Component {
 }
 
 TextFit.defaultProps = {
-  style:{}
+  style:{},
+  maxSize: Infinity,
 }
 TextFit.propTypes = {
   children: React.PropTypes.any.isRequired,
   style: React.PropTypes.object,
+  maxSize: React.PropTypes.number,
 }
 
 export default TextFit;

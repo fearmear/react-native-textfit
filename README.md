@@ -9,6 +9,7 @@ Auto size text to fit inside a box
 - `children`: ***required*** Text input that should be resized
 - `width`: Maximum width of the box. (Default: auto)
 - `height`: Maximum height of the box. (Default: auto)
+- `maxSize`: Maximum size of the font. (Default: Infinity)
 - [Other React props](https://facebook.github.io/react-native/docs/text.html#props) 
 
 ## Installation
