@@ -10,6 +10,7 @@ Auto size text to fit inside a box
 - `width`: Maximum width of the box. (Default: auto)
 - `height`: Maximum height of the box. (Default: auto)
 - `maxSize`: Maximum size of the font. (Default: Infinity)
+- `onComplete`: Resize completion callback. (Default: none)
 - [Other React props](https://facebook.github.io/react-native/docs/text.html#props) 
 
 ## Installation
