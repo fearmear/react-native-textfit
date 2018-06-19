@@ -23,6 +23,7 @@ class TextFit extends Component {
       if (maxHeight < height) {
         if (this.state.size == 0.5) {
           this.setState({complete: true});
+          this.props.onComplete()
         } else {
           this.setState({size: this.state.size -= 0.5, complete: true});
           this.setSize()
@@ -33,6 +34,9 @@ class TextFit extends Component {
             size: this.state.size += 0.5,
             complete: this.state.size >= this.props.maxSize
           })
+          if (this.state.size >= this.props.maxSize) {
+            this.props.onComplete()
+          }
           this.setSize()
         }
       }
@@ -64,11 +68,13 @@ class TextFit extends Component {
 TextFit.defaultProps = {
   style:{},
   maxSize: Infinity,
+  onComplete: () => {},
 }
 TextFit.propTypes = {
   children: React.PropTypes.any.isRequired,
   style: React.PropTypes.object,
   maxSize: React.PropTypes.number,
+  onComplete: React.PropTypes.function,
 }
 
 export default TextFit;
