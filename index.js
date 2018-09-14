@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {
   StyleSheet,
   Text,
@@ -71,10 +72,10 @@ TextFit.defaultProps = {
   onComplete: () => {},
 }
 TextFit.propTypes = {
-  children: React.PropTypes.any.isRequired,
-  style: React.PropTypes.object,
-  maxSize: React.PropTypes.number,
-  onComplete: React.PropTypes.function,
+  children: PropTypes.any.isRequired,
+  style: PropTypes.object,
+  maxSize: PropTypes.number,
+  onComplete: PropTypes.func,
 }
 
 export default TextFit;

@@ -1,6 +1,6 @@
 {
   "name": "react-native-textfit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Auto size text to fit inside a box",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/stoffern/react-native-textfit/issues"
   },
-  "homepage": "https://github.com/stoffern/react-native-textfit#readme"
+  "homepage": "https://github.com/stoffern/react-native-textfit#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
 }
